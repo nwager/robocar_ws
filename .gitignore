@@ -1,0 +1,8 @@
+.vscode/
+# catkin generated folders
+build/
+devel/
+# user folders to ignore
+_ignore_*/
+# compiled files
+*.pyc
