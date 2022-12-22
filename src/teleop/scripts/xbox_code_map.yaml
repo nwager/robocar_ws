@@ -1,0 +1,72 @@
+---
+# maps code to properties
+"0":
+  type: "ABS"
+  name: "joystick_x_left"
+  min : 0
+  max : 65535 # right
+"1":
+  type: "ABS"
+  name: "joystick_y_left"
+  min : 0
+  max : 65535 # down
+"2":
+  type: "ABS"
+  name: "joystick_x_right"
+  min : 0
+  max : 65535 # right
+"5":
+  type: "ABS"
+  name: "joystick_y_right"
+  min : 0
+  max : 65535 # down
+"16":
+  type: "ABS"
+  name: "dpad_x"
+  min : -1
+  max : 1 # right
+"17":
+  type: "ABS"
+  name: "dpad_y"
+  min : -1
+  max : 1 # down
+"10":
+  type: "ABS"
+  name: "trigger_left"
+  min : 0
+  max : 1023 # full down
+"9":
+  type: "ABS"
+  name: "trigger_right"
+  min : 0
+  max : 1023 # full down
+"304":
+  type: "KEY"
+  name: "a"
+"305":
+  type: "KEY"
+  name: "b"
+"307":
+  type: "KEY"
+  name: "x"
+"308":
+  type: "KEY"
+  name: "y"
+"310":
+  type: "KEY"
+  name: "bumper_left"
+"311":
+  type: "KEY"
+  name: "bumper_right"
+"317":
+  type: "KEY"
+  name: "thumb_left"
+"318":
+  type: "KEY"
+  name: "thumb_right"
+"158":
+  type: "KEY"
+  name: "back"
+"315":
+  type: "KEY"
+  name: "start"
