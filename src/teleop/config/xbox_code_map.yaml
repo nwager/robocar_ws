@@ -1,72 +1,72 @@
 ---
 # maps code to properties
-"0":
+"ABS_X":
   type: "ABS"
   name: "joystick_x_left"
   min : 0
   max : 65535 # right
-"1":
+"ABS_Y":
   type: "ABS"
   name: "joystick_y_left"
   min : 0
   max : 65535 # down
-"2":
+"ABS_RX":
   type: "ABS"
   name: "joystick_x_right"
   min : 0
   max : 65535 # right
-"5":
+"ABS_RY":
   type: "ABS"
   name: "joystick_y_right"
   min : 0
   max : 65535 # down
-"16":
+"ABS_HAT0X":
   type: "ABS"
   name: "dpad_x"
   min : -1
   max : 1 # right
-"17":
+"ABS_HAT0Y":
   type: "ABS"
   name: "dpad_y"
   min : -1
   max : 1 # down
-"10":
+"ABS_Z":
   type: "ABS"
   name: "trigger_left"
   min : 0
   max : 1023 # full down
-"9":
+"ABS_RZ":
   type: "ABS"
   name: "trigger_right"
   min : 0
   max : 1023 # full down
-"304":
+"BTN_A":
   type: "KEY"
   name: "a"
-"305":
+"BTN_B":
   type: "KEY"
   name: "b"
-"307":
+"BTN_C":
   type: "KEY"
   name: "x"
-"308":
+"BTN_NORTH":
   type: "KEY"
   name: "y"
-"310":
+"BTN_WEST":
   type: "KEY"
   name: "bumper_left"
-"311":
+"BTN_Z":
   type: "KEY"
   name: "bumper_right"
-"317":
+"BTN_TL2":
   type: "KEY"
   name: "thumb_left"
-"318":
+"BTN_TR2":
   type: "KEY"
   name: "thumb_right"
-"158":
+"BTN_TL":
   type: "KEY"
   name: "back"
-"315":
+"BTN_TR":
   type: "KEY"
   name: "start"

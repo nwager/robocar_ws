@@ -1,0 +1,7 @@
+<launch>
+
+    <group ns="teleop_basic">
+        <node pkg="teleop" name="teleop" type="teleop.py" output="screen" />
+    </group>
+
+</launch>
