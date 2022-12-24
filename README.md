@@ -15,3 +15,11 @@ Finally, to give the user access to input devices in `/dev/input/` like the cont
 echo "KERNEL==\"event*\", NAME=\"input/%k\", MODE=\"666\", GROUP=\"input\"" | sudo tee -a /etc/udev/rules.d/99-input.rules
 ```
 
+## Communicating with Router
+
+The "router" is the auxiliary microcontroller connected to the Nano, responsible for interacting with sensors and actuators. It is essentially a hardware interface for the "brain", i.e. the Nano.
+
+You need permission to read the serial port (`/dev/ttyACM0`) so you'll need to be a part of the "dialout" group:
+```
+sudo usermod -a -G dialout $USER
+```

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>router</name>
+  <version>0.0.0</version>
+  <description>
+    Subscribes to control messages and sends them to the
+    router device via serial.
+  </description>
+
+  <maintainer email="noahwager@gmail.com">Noah Wager</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>python-serial</exec_depend>
+
+</package>
