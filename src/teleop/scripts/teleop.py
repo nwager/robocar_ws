@@ -26,13 +26,15 @@ def main():
     )
     controller.begin()
 
-    rate = rospy.Rate(20)
+    rate = rospy.Rate(10)
     while not rospy.is_shutdown():
         throttle = controller.trigger_right
         steer = controller.joystick_x_left
 
-        speed = 8.0 * throttle if motor_enabled else 0.0
-        steer_angle = (MAX_STEER_ANGLE - MIN_STEER_ANGLE) * steer / 2
+        speed = 2.0 * throttle if motor_enabled else 0.0
+        # flip steer direction
+        steer_angle = (MIN_STEER_ANGLE - MAX_STEER_ANGLE) * steer / 2
+        rospy.loginfo("Steering angle: %f" % steer_angle)
         msg = RobocarControl(speed=speed, steering_angle=steer_angle)
         pub.publish(msg)
         rate.sleep()
