@@ -1,3 +1,6 @@
 [submodule "src/robocar_src"]
 	path = src/robocar_src
 	url = git@github.com:nwager/robocar_src.git
+[submodule "src/robocar_overlay"]
+	path = src/robocar_overlay
+	url = git@github.com:nwager/robocar_overlay.git
