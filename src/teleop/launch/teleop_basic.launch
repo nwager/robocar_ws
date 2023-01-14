@@ -1,8 +1,17 @@
 <launch>
 
     <group ns="teleop_basic">
+        <node pkg="router" name="pico_reboot" type="pico_reboot.sh" />
+
         <node pkg="teleop" name="teleop" type="teleop.py" />
+
+        <param name="~receiver_init_delay" type="double" value="2.0" />
         <node pkg="router" name="receiver" type="receiver.py" output="screen" />
+
+        <!--
+        <arg name="node_start_delay" default="1.0" />
+        <node pkg="router" name="receiver" type="receiver.py" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " output="screen" />
+        -->
     </group>
 
 </launch>

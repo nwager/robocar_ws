@@ -23,10 +23,13 @@ def main():
     # reset procedure
     router.reset_output_buffer()
     router.reset_input_buffer()
-    if not attempt_reset_router():
-        raise RuntimeError("Failed to reset router device.")
-    else:
-        rospy.loginfo("Successfully reset router device.")
+
+    time.sleep(rospy.get_param('~receiver_init_delay', 1.0))
+
+    # if not attempt_reset_router():
+    #     raise RuntimeError("Failed to reset router device.")
+    # else:
+    #     rospy.loginfo("Successfully reset router device.")
     
     send_command(CMD_SET_ACCEL_OFFSET, 2*struct.calcsize('3f'))
     send_data(
@@ -66,12 +69,18 @@ def attempt_calibrate(timeout=3):
 
 def control_cb(msg):
     send_control(msg.speed, msg.steering_angle)
+    if get_router_ack():
+        send_command(0x01, 8)
+        vel, steer = struct.unpack('<2f', router.read(8))
+        rospy.loginfo("vel: %f, steer: %f", vel, steer)
+    # data = struct.unpack('8B', router.read(8))
+    # rospy.loginfo("data: {}".format([bin(d)[2:] for d in data]))
 
 def send_control(speed, steer):
     cmd = CMD_SET_CONTROL
     payload_size = 8
     send_command(cmd, payload_size)
-    router.write(struct.pack('2f', speed, steer))
+    send_data('<2f', speed, steer)
 
 def send_command(command, payload_size):
     router.write(struct.pack('<2B', command, payload_size))
@@ -79,8 +88,11 @@ def send_command(command, payload_size):
 def send_data(fmt, *data):
     router.write(struct.pack(fmt, *data))
 
-def get_router_ack():
+def get_router_ack(timeout=5):
+    old_timeout = router.timeout
+    router.timeout = timeout
     ack_read = router.read(1)
+    router.timeout = old_timeout
     if len(ack_read) != 1:
         return False
     ack = struct.unpack('B', ack_read)[0]

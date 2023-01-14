@@ -77,6 +77,12 @@ class GameController(object):
         )
         self._monitor_thread.daemon = True
 
+        self.ended = False
+
+
+    def __del__(self):
+        self.ended = True
+
 
     def begin(self):
         """
@@ -93,7 +99,7 @@ class GameController(object):
 
 
     def _monitor_controller(self):
-        while True:
+        while not self.ended:
             for event in self.device.read_loop():
                 self._process_event(event)
     
